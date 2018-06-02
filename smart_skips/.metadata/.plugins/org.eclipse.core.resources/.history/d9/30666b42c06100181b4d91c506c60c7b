@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+   <t_operator id="1" username="admin1" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="110"
+		create_date="2018-09-10" onduty="1" lid="1" />
+		<t_operator id="2" username="admin2" 
+		nickname="admin2" email="admin2@admin.com" status="1" phone="110"
+		create_date="2018-09-10" onduty="1" lid="1" />
+
+	<t_skip id="1" name="skip1" location="International House Darwin" latitude="-12.370098" longitude="130.869750"
+	full="1" type="1" status="1" capacity="10" current_capacity="0.5" count="5"/>
+	<t_skip id="2" name="skip2" location="UniLodge Darwin" latitude="-12.377070" longitude="130.881104"
+	full="1" type="1" status="1" capacity="10" current_capacity="1" count="100"/>
+	<t_skip id="3" name="skip3" location="Alawa" latitude="-12.378929" longitude="130.874946"
+	full="0" type="1" status="1" capacity="10" current_capacity="5" count="20"/>
+	<t_skip id="4" name="skip4" location="awa" latitude="-12.407081" longitude="130.916496"
+	full="0" type="1" status="1" capacity="10" current_capacity="5" count="15"/>
+	<t_skip id="5" name="skip5" location="Alwa" latitude="-12.357125" longitude="130.890206"
+	full="1" type="1" status="1" capacity="10" current_capacity="5" count="20"/>
+	<t_skip id="6" name="skip6" location="lawa" latitude="-12.411513" longitude="130.825287"
+	full="1" type="1" status="1" capacity="10" current_capacity="5" count="2"/>
+	
+
+
+
+	<t_driver id="1" username="admin1" password="3bb771d3d388f56c8c33d1a14b5530d9" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="0410454232"
+		create_date="2018-09-10" loaded="0" type="2" trashamount="0.0" />
+	<t_driver id="2" username="admin2" password="552fef0ec29917ecf0d0978bae44ea94" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="0410456232"
+		create_date="2018-09-10" loaded="0" type="2" trashamount="0.0"/>
+	<t_driver id="3" username="admin3" password="123" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="0410454732"
+		create_date="2018-09-10" loaded="0" type="2" trashamount="0.0"/>
+	<t_driver id="4" username="admin4" password="123" 
+		nickname="admin1" email="admin1@admin.com" status="1" phone="0410454832"
+		create_date="2018-09-10" loaded="0" type="2" trashamount="0.0"/>
+	
+
+	<t_landfill id="1" name="Darwin Landfill" address="Darwin landfill" latitude="-12.417311" longitude="130.927287"
+	status="1" GWCapacity="100" current_GWCapacity="50" CWCapacity="100" current_CWCapacity="50" />
+		
+   
+
+		
+	
+	
+</dataset>

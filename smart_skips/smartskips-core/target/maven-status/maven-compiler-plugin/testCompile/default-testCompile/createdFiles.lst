@@ -1,0 +1,7 @@
+cdu\xeon\basic\test\util\EntitiesHelper.class
+cdu\xeon\smartskips\dao\Abc.class
+cdu\xeon\smartskips\dao\TestUserDao.class
+cdu\xeon\basic\test\util\DbUtil.class
+cdu\xeon\basic\test\util\TestUtil.class
+cdu\xeon\smartskips\smartskips_core\AppTest.class
+cdu\xeon\basic\test\util\AbstractDbUnitTestCase.class

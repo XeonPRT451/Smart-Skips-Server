@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;cdu.xeon.smartskips.dao.abc&apos; to &apos;Abc&apos;&#x0D;&#x0A;- Original project: &apos;smartskips-core&apos;&#x0D;&#x0A;- Original element: &apos;cdu.xeon.smartskips.dao.abc&apos;&#x0D;&#x0A;- Renamed element: &apos;cdu.xeon.smartskips.dao.Abc&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;abc&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java&lt;cdu.xeon.smartskips.dao{abc.java[abc" matchStrategy="1" name="Abc" qualified="false" references="true" similarDeclarations="false" stamp="1526535504825" textual="false" version="1.0"/>
+</session>

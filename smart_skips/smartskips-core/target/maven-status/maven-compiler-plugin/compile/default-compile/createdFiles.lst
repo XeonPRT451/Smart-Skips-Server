@@ -1,0 +1,14 @@
+cdu\xeon\smartskips\dao\ISkipDao.class
+cdu\xeon\smartskips\dao\IDriverDao.class
+cdu\xeon\smartskips\dao\LandfillDao.class
+cdu\xeon\smartskips\dao\DriverDao.class
+cdu\xeon\smartskips\dao\OperatorDao.class
+cdu\xeon\smartskips\model\SmartskipsException.class
+cdu\xeon\smartskips\model\Skip.class
+cdu\xeon\smartskips\model\Driver.class
+cdu\xeon\smartskips\model\Operator.class
+cdu\xeon\smartskips\dao\IOperatorDao.class
+cdu\xeon\smartskips\smartskips_core\App.class
+cdu\xeon\smartskips\dao\ILandfillDao.class
+cdu\xeon\smartskips\dao\SkipDao.class
+cdu\xeon\smartskips\model\Landfill.class

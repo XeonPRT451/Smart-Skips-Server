@@ -1,0 +1,182 @@
+package cdu.xeon.smartskips.service;
+
+import java.security.NoSuchAlgorithmException;
+import java.util.Date;
+
+
+import javax.inject.Inject;
+
+
+import org.springframework.stereotype.Service;
+
+import cdu.xeon.basic.model.Pager;
+import cdu.xeon.basic.util.SecurityUtil;
+import cdu.xeon.smartskips.dao.IDriverDao;
+import cdu.xeon.smartskips.dao.ILandfillDao;
+import cdu.xeon.smartskips.dao.ISkipDao;
+import cdu.xeon.smartskips.model.Driver;
+import cdu.xeon.smartskips.model.Landfill;
+import cdu.xeon.smartskips.model.Skip;
+import cdu.xeon.smartskips.model.SmartskipsException;
+
+@Service("driverService")
+public class DriverService implements IDriverService {
+	private IDriverDao driverDao;
+	private ISkipDao skipDao;
+	private ILandfillDao landfillDao;
+	
+
+	public IDriverDao getDriverDao() {
+		return driverDao;
+	}
+	@Inject
+	public void setDriverDao(IDriverDao driverDao) {
+		this.driverDao = driverDao;
+	}
+
+	
+	public ISkipDao getSkipDao() {
+		return skipDao;
+	}
+	
+	@Inject
+	public void setSkipDao(ISkipDao skipDao) {
+		this.skipDao = skipDao;
+	}
+	
+	
+	
+	public ILandfillDao getLandfillDao() {
+		return landfillDao;
+	}
+	@Inject
+	public void setLandfillDao(ILandfillDao landfillDao) {
+		this.landfillDao = landfillDao;
+	}
+	@Override
+	public void add(Driver driver) {
+		
+		Driver td = driverDao.loadByUsername(driver.getUsername());
+		if(td!=null)throw new SmartskipsException("The added driver object already exists and cannot be added");
+		driver.setCreateDate(new Date());
+		try {
+			driver.setPassword(SecurityUtil.md5(driver.getUsername(),driver.getPassword()));
+		} catch (NoSuchAlgorithmException e) {
+			throw new SmartskipsException("Password encryption failed:"+e.getMessage());
+		}
+		
+		driverDao.add(driver);
+		
+	
+	}
+
+	@Override
+	public void delete(int id) {
+		
+		driverDao.delete(id);
+	}
+
+	
+
+	@Override
+	public void updateStatus(int id) {
+		Driver d = driverDao.load(id);
+		if(d==null) throw new SmartskipsException("The driver of the modified state does not exist");
+		if(d.getStatus()==0) d.setStatus(1);
+		else d.setStatus(0);
+		driverDao.update(d);
+	}
+
+	@Override
+	public Pager<Driver> findDriver() {
+		return driverDao.findDriver();
+	}
+
+	@Override
+	public Driver load(int id) {
+		return driverDao.load(id);
+	}
+
+	
+	@Override
+	public Driver login(String username, String password) {
+		
+		
+		Driver driver = driverDao.loadByUsername(username);
+		
+		if(driver==null) throw new SmartskipsException("Driver name or password is incorrect");
+		try {
+			if(!SecurityUtil.md5(username,password).equals(driver.getPassword())) {
+				throw new SmartskipsException("Driver name or password is incorrect");
+			}
+		} catch (NoSuchAlgorithmException e) {
+			throw new SmartskipsException("Password encryption failed:"+e.getMessage());
+		}
+		if(driver.getStatus()==0) throw new SmartskipsException("The driver has been disabled, please contact the administrator");
+		return driver;
+	}
+	@Override
+	public void update(Driver driver) {
+		
+		
+		driverDao.updateDriver(driver);
+	
+		
+	
+	}
+	@Override
+	public void updatePickupSkip(int did, int sid) {
+		Driver d = driverDao.load(did);
+		if(d.getLoaded()==1) {
+			throw new SmartskipsException("This truck already loaded skip");
+			
+		}
+		d.setLoaded(1);
+		Skip s=skipDao.load(sid);
+		if(s.getFull()==0) {
+			throw new SmartskipsException("This skip is not full");
+		}
+		
+		s.setFull(0);
+		d.setType(s.getType());
+		d.setTrashamount(s.getCapacity()-s.getCurrentCapacity());
+		s.setCurrentCapacity(s.getCapacity());
+		s.setCount(s.getCount()+1);
+		driverDao.updateDriver(d);
+		skipDao.updateSkip(s);
+	}
+	
+	@Override
+	public void updateEmptySkip(int did, int lid) {
+		Driver d=driverDao.load(did);
+		Landfill l=landfillDao.load(lid);
+		if(d.getType()==2 ||d.getLoaded()==0) {
+			throw new SmartskipsException("The truck is empty");
+		}
+		if(d.getType()==1) {
+			l.setCurrentCWCapacity(l.getCurrentCWCapacity()-d.getTrashamount());
+		}
+		if(d.getType()==0) {
+			l.setCurrentGWCapacity(l.getCurrentGWCapacity()-d.getTrashamount());
+		}
+		d.setType(2);
+		d.setTrashamount(0.0);
+		d.setLoaded(0);
+		driverDao.updateDriver(d);
+	    landfillDao.update(l);
+	}
+	@Override
+	public void updatePwd(int did, String oldPwd, String newPwd) {
+		try {
+			Driver d = driverDao.load(did);
+			if(!SecurityUtil.md5(d.getUsername(),oldPwd).equals(d.getPassword())) {
+				throw new SmartskipsException("The original password is incorrect");
+			}
+			d.setPassword(SecurityUtil.md5(d.getUsername(), newPwd));
+			driverDao.update(d);
+		} catch (NoSuchAlgorithmException e) {
+			throw new SmartskipsException("Update password failed:"+e.getMessage());
+		}
+	}
+
+}

@@ -1,0 +1,5 @@
+cdu\xeon\basic\dao\IBaseDao.class
+cdu\xeon\basic\model\Pager.class
+cdu\xeon\basic\dao\BaseDao.class
+cdu\xeon\basic\model\SystemContext.class
+cdu\xeon\basic\basic_hibernate\App.class

@@ -1,0 +1,90 @@
+package cdu.xeon.smartskips.controller;
+
+import java.io.IOException;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cdu.xeon.basic.util.JsonUtil;
+
+import cdu.xeon.smartskips.model.Driver;
+
+import cdu.xeon.smartskips.service.IDriverService;
+
+@Controller
+@RequestMapping("/driver")
+public class DriverController {
+
+private IDriverService driverService;	
+
+
+
+	public IDriverService getDriverService() {
+	return driverService;
+}
+
+
+	@Inject
+    public void setDriverService(IDriverService driverService) {
+	this.driverService = driverService;
+}
+
+
+
+	@RequestMapping("/mobileLogin")  
+	public void login(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+		
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");	
+			System.out.println("--------------------------------"+username);
+     try {
+			Driver d = driverService.login(username, password);
+			response.setContentType("application/json");
+			response.getWriter().write(JsonUtil.getInstance().obj2json(d));
+     }
+     catch (Exception e) {
+    	 e.printStackTrace();
+    	 }
+	}
+
+
+	
+	@RequestMapping("/mobileUpdate")  
+	public void update(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+		Driver nd = (Driver)request.getAttribute("driver");
+		int sid = Integer.parseInt(request.getParameter("sid")); 
+		Driver od = driverService.load(nd.getId());
+		od.setNickname(nd.getNickname());
+		od.setPhone(nd.getPhone());
+		od.setEmail(nd.getEmail());
+		od.setStatus(nd.getStatus());
+		driverService.update(od,sid);
+		
+	}
+		@RequestMapping("/mobileUpdatePwd")  
+	public void updatePwd(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+			int did = Integer.parseInt(request.getParameter("did")); 
+			String oldPwd = request.getParameter("oldPwd");
+			String newPwd = request.getParameter("newPwd");	
+			driverService.updatePwd(did, oldPwd, newPwd);
+			
+		}
+		@RequestMapping("/mobileLoad")
+		public void load(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+			int did = Integer.parseInt(request.getParameter("did")); 
+			Driver d = driverService.load(did);
+			response.setContentType("application/json");
+			try {
+				response.getWriter().write(JsonUtil.getInstance().obj2json(d));
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+}
+		
+}

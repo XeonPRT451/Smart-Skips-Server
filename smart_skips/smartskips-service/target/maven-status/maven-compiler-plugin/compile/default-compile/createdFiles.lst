@@ -1,0 +1,9 @@
+cdu\xeon\smartskips\service\IOperatorService.class
+cdu\xeon\smartskips\service\SkipService.class
+cdu\xeon\smartskips\service\OperatorService.class
+cdu\xeon\smartskips\smartskips_service\App.class
+cdu\xeon\smartskips\service\IDriverService.class
+cdu\xeon\smartskips\service\ISkipService.class
+cdu\xeon\smartskips\service\LandfillService.class
+cdu\xeon\smartskips\service\DriverService.class
+cdu\xeon\smartskips\service\ILandfillService.class

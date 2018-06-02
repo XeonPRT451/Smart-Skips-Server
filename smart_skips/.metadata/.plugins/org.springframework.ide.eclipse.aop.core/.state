@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="smartskips-service"/>
+<aop-project name="smartskips-core"/>
+<aop-project name="smartskips-web"/>
+<aop-project name="basic-hibernate"/>
+</aop-reference-model>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="cdu.xeon.basic.test.util.AbstractDbUnitTestCase"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="cdu.xeon.basic.dao.IBaseDao"/>
+<fullyQualifiedTypeName name="cdu.xeon.basic.dao.BaseDao"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.dao.IDriverDao"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.dao.ISkipDao"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.dao.IOperatorDao"/>
+<fullyQualifiedTypeName name="antlr.collections.List"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.model.SmartskipsException"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.auth.AuthUtil"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="org.springframework.ui.ModelMap"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.dao.DriverDao"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.model.Driver"/>
+<fullyQualifiedTypeName name="cdu.xeon.basic.util.JsonUtil"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.service.ISkipService"/>
+<fullyQualifiedTypeName name="cdu.xeon.basic.model.Pager"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.model.Skip"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.service.IOperatorService"/>
+<fullyQualifiedTypeName name="org.springframework.expression.spel.ast.Operator"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.model.Operator"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.service.ILandfillService"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.dao.SkipDao"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.service.IDriverService"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.service.DriverService"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="javax.inject.Inject"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.dao.ILandfillDao"/>
+<fullyQualifiedTypeName name="cdu.xeon.smartskips.model.Landfill"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequestWrapper"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+</qualifiedTypeNameHistroy>
